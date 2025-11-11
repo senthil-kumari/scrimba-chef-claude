@@ -8,7 +8,7 @@ export function Footer() {
       </div>
       <div className="link">
         <a
-          href="https://github.com/senthil-kumari/scrimba-chef-claude"
+          href="https://github.com/senthil-kumari/chef-recipe-genie"
           target="_blank"
           aria-label="GitHub"
         >
