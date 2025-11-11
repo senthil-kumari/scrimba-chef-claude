@@ -1,5 +1,5 @@
 import ReactMarkdown from "react-markdown";
-export default function ClaudeRecipe({ recipe }) {
+export default function RecipeDetails({ recipe }) {
   return (
     <>
       <h2>Recipe Genie recommends:</h2>

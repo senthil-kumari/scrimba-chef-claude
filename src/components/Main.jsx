@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect } from "react";
-import ClaudeRecipe from "./ClaudeRecipe";
+import RecipeDetails from "./RecipeDetails.jsx";
 import IngredientsList from "./IngredientsList";
 import { getRecipeFromAI } from "../ai.js";
 import { SpinnerOverlay } from "./SpinnerOverlay.jsx";
@@ -53,7 +53,7 @@ export default function Main() {
           className="suggested-recipe-container"
           aria-live="polite"
         >
-          <ClaudeRecipe recipe={recipe} />
+          <RecipeDetails recipe={recipe} />
         </section>
       )}
     </main>
