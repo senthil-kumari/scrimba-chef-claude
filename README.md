@@ -26,7 +26,7 @@ Built with **React**, powered by **Hugging Face Inference API**, and deployed on
 
 ### 1. Clone the repo
 
-git clone https://github.com/senthil-kumari/scrimba-chef-claude.git
+git clone https://github.com/senthil-kumari/scrimba-chef-claude.git   
 cd scrimba-chef-claude
 
 ### 2. Install dependencies
@@ -46,8 +46,8 @@ npx vercel login
 
 npx vercel dev
 
-Your app will now be available at
+Your app will now be available at   
 👉 http://localhost:3000
 
-🌐 Live Demo
+🌐 Live Demo   
 🔗 [Recipe Genie](https://chef-recipe-genie.vercel.app/)
