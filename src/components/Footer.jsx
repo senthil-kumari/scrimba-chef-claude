@@ -3,7 +3,8 @@ export function Footer() {
   return (
     <footer>
       <div>
-        &copy; {new Date().getFullYear()} Made with ❤️ by Senthil Kumari P
+        &copy; {new Date().getFullYear()} Built with ❤️ by{" "}
+        <strong>Senthil Kumari P</strong>
       </div>
       <div className="link">
         <a
