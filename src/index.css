@@ -147,3 +147,22 @@ ul.ingredients-list > li {
     transform: rotate(360deg);
   }
 }
+
+footer {
+  position: fixed;
+  bottom: 0;
+  padding: 7px 0;
+  background-color: #ced0d8;
+  width: 100%;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.link {
+  margin-top: 5px;
+}
+
+.link a {
+  color: #171719;
+  padding: 0 5px;
+}
