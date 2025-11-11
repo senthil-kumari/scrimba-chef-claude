@@ -1,11 +1,13 @@
 import { useRef, useState, useEffect } from "react";
 import ClaudeRecipe from "./ClaudeRecipe";
 import IngredientsList from "./IngredientsList";
-import { getRecipeFromMistral } from "../ai.js";
+import { getRecipeFromAI } from "../ai.js";
+import { SpinnerOverlay } from "./SpinnerOverlay.jsx";
 
 export default function Main() {
   const [ingredients, setIngredients] = useState([]);
   const [recipe, setRecipe] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const recipeContentRef = useRef(null);
 
   // Scroll to the recipe section
@@ -24,12 +26,14 @@ export default function Main() {
   }
 
   async function getRecipe() {
-    const recipeMarkdown = await getRecipeFromMistral(ingredients);
+    setIsLoading(true);
+    const recipeMarkdown = await getRecipeFromAI(ingredients);
     setRecipe(recipeMarkdown);
+    setIsLoading(false);
   }
   return (
     <main>
-      <p>Add a list of Ingredients to create a recipe</p>
+      <p>Add a list of ingredients to create a recipe (atleast 4)</p>
       <form className="add-ingredient-form" action={addIngredient}>
         <input
           placeholder="e.g. Oregano"
@@ -42,6 +46,7 @@ export default function Main() {
       {ingredients.length > 0 && (
         <IngredientsList ingredients={ingredients} getRecipe={getRecipe} />
       )}
+      <SpinnerOverlay isLoading={isLoading} />
       {recipe && (
         <section
           ref={recipeContentRef}
