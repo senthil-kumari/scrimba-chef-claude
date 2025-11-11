@@ -45,6 +45,7 @@ npx vercel login
 ### 5. Run locally with Vercel
 
 npx vercel dev
+
 Your app will now be available at
 👉 http://localhost:3000
 
