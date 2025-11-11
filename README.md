@@ -35,7 +35,7 @@ npm install
 
 ### 3. Add environment variable
 
-Create a .env.local file in the root directory:
+Create a .env.local file in the root directory and all the hugging face access token.   
 HF_ACCESS_TOKEN=your_huggingface_token_here
 
 ### 4. Login to Vercel (if not already)
