@@ -39,12 +39,22 @@ export default function Main() {
   }, [recipe]);
 
   function addIngredient(formData) {
-    const ingredientInput = formData.get("ingredient");
+    const ingredientInput = formData.get("ingredient").trim();
+    if (!ingredientInput) return;
     const newIngredient = {
       id: uuidv4(), // <--- This is your unique ID
       name: ingredientInput,
     };
-    setIngredients((prevIngredients) => [...prevIngredients, newIngredient]);
+    setIngredients((prevIngredients) => {
+      if (
+        prevIngredients.some(
+          (i) => i.name.toLowerCase() === ingredientInput.toLowerCase()
+        )
+      ) {
+        return prevIngredients; // prevent duplicates
+      }
+      return [...prevIngredients, newIngredient];
+    });
   }
 
   async function getRecipe() {
