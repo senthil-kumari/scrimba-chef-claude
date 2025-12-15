@@ -9,6 +9,7 @@ export default function Main() {
   const [ingredients, setIngredients] = useState([]);
   const [recipe, setRecipe] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
   const recipeContentRef = useRef(null);
 
   let placeholderText;
@@ -58,12 +59,18 @@ export default function Main() {
   }
 
   async function getRecipe() {
-    setIsLoading(true);
-    const recipeMarkdown = await getRecipeFromAI(
-      ingredients.map((ingredient) => ingredient.name)
-    );
-    setRecipe(recipeMarkdown);
-    setIsLoading(false);
+    try {
+      setIsLoading(true);
+      const recipeMarkdown = await getRecipeFromAI(
+        ingredients.map((ingredient) => ingredient.name)
+      );
+      setRecipe(recipeMarkdown);
+    } catch (err) {
+      console.error(err);
+      setError("⚠️ Something went wrong. Please try again.");
+    } finally {
+      setIsLoading(false);
+    }
   }
 
   return (
@@ -80,6 +87,7 @@ export default function Main() {
         />
         <button className="add-button">Add Ingredient</button>
       </form>
+      {error && <div className="error-message">{error}</div>}
       {ingredients.length > 0 && (
         <IngredientsList
           ingredients={ingredients}

@@ -161,7 +161,7 @@ ul.ingredients-list .remove-btn {
   background: #a7ca90;
   padding: 3px 28px;
   margin: 10px 0;
-  margin-bottom: 55px;
+  margin-bottom: 40px;
 }
 
 .get-recipe-container h3 {
@@ -252,4 +252,11 @@ footer {
 .link a {
   color: #171719;
   padding: 3px;
+}
+
+.error-message{
+  color: red;
+  margin: 15px;
+  padding-bottom: 12px;
+  text-align: center;
 }
