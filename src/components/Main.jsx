@@ -12,17 +12,14 @@ export default function Main() {
   const [error, setError] = useState("");
   const recipeContentRef = useRef(null);
 
-  let placeholderText;
   const n = ingredients.length;
-  switch (true) {
-    case n === 0:
-      placeholderText = "Enter your first ingredient here...";
-      break;
-    case n <= 3:
-      placeholderText = `Enter ingredient no. ${n + 1}`;
-      break;
-    case n >= 4:
-      placeholderText = `Add another ingredient (Optional)`;
+
+  let placeholderText = "Add another ingredient (Optional)";
+
+  if (n === 0) {
+    placeholderText = "Enter your first ingredient here...";
+  } else if (n <= 3) {
+    placeholderText = `Enter ingredient no. ${n + 1}`;
   }
   const inputMessage =
     ingredients.length >= 4
